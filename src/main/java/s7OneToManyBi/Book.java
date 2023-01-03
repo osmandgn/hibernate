@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Book {
 
+
     @Id
     private int id;
 
