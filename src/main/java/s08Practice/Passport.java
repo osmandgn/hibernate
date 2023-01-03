@@ -2,11 +2,10 @@ package s08Practice;
 
 //Utıls
 // Constructor
-// onetoone ikisinde de tablo
+// onetoone both
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
