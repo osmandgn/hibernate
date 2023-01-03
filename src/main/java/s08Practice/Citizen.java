@@ -2,6 +2,7 @@ package s08Practice;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Citizen {
@@ -13,7 +14,12 @@ public class Citizen {
 
     private String surname;
 
+    @OneToOne
     private Passport passport;
+
+    public Citizen(){
+
+    }
 
     public Citizen(int id, String name, String surname, Passport passport) {
         this.id = id;
@@ -21,6 +27,7 @@ public class Citizen {
         this.surname = surname;
         this.passport = passport;
     }
+
 
     public int getId() {
         return id;

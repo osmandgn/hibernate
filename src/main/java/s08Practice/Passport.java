@@ -6,6 +6,8 @@ package s08Practice;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Passport {
@@ -15,9 +17,14 @@ public class Passport {
 
     private String serialNo;
 
+    @OneToOne
     private Citizen citizen;
 
-    public Passport(int id, String serialNo, Citizen citizen) {
+    public Passport(){
+
+    }
+
+    public Passport(int id, String serialNo) {
         this.id = id;
         this.serialNo = serialNo;
         this.citizen = citizen;
