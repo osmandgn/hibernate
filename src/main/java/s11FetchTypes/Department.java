@@ -14,7 +14,7 @@ public class Department {
     @Column(name = "d_name", length = 50)
     private String name;
 
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Teacher> teacherList;
 
     public int getId() {
