@@ -38,6 +38,21 @@ public class FetchCitizen {
         List<Citizen> citizenList1 = query2.getResultList();
         citizenList1.forEach(System.out::println);
 
+//        int dgr1 = 50;
+//        int dgr2= 60;
+//        String hql = "Update Citizen c SET c.age=:dgr1 WHERE c.age<:dgr2";
+//        Query query = session.createQuery(hql);
+//        query.setParameter("dgr1", dgr1);
+//        query.setParameter("dgr2", dgr2);
+//        int updatedData = query.executeUpdate();
+//        System.out.println("Guncellenen Citizen Sayisi " + updatedData);
+
+        String str = "Citizen 0";
+        String hql1 = "From Citizen c where c.name=:str";
+        Query query = session.createQuery(hql1);
+        query.setParameter("str", str);
+        List<Citizen> citizens = query.getResultList();
+        citizens.forEach(System.out::println);
 
 
         tx.commit();
