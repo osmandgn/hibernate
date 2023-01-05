@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
@@ -47,12 +48,24 @@ public class FetchCitizen {
 //        int updatedData = query.executeUpdate();
 //        System.out.println("Guncellenen Citizen Sayisi " + updatedData);
 
-        String str = "Citizen 0";
-        String hql1 = "From Citizen c where c.name=:str";
-        Query query = session.createQuery(hql1);
-        query.setParameter("str", str);
-        List<Citizen> citizens = query.getResultList();
-        citizens.forEach(System.out::println);
+//        String str = "Citizen 0";
+//        String hql1 = "From Citizen c where c.name=:str";
+//        Query query = session.createQuery(hql1);
+//        query.setParameter("str", str);
+//        List<Citizen> citizens = query.getResultList();
+//        citizens.forEach(System.out::println);
+
+        // Yaşı 40-50 arasında olan veya ismi DoctorName 1 olan citizen'ları getirin.
+
+        Predicate predicate1 = criteriaBuilder.between(root.get("age"), 40, 50);
+        Predicate predicate2 = criteriaBuilder.equal(root.get("name"), "DoctorName 1");
+        Predicate orPredicate = criteriaBuilder.or(predicate1, predicate2);
+        criteriaQuery.where(orPredicate);
+        Query<Citizen> query = session.createQuery(criteriaQuery);
+        List<Citizen> citizenList = query.getResultList();
+        citizenList.forEach(System.out::println);
+
+
 
 
         tx.commit();
