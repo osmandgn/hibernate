@@ -23,6 +23,10 @@ public class EmployeeFetcher {
 //        session.delete(emp); // obje silindi.
 //
 
+        Employee emp1 = session.get(Employee.class, 2L);
+        if (emp1 != null){
+            System.out.println(emp1.getName());
+        }
 
 
 
