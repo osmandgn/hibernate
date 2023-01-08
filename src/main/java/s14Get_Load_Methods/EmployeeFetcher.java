@@ -15,6 +15,23 @@ public class EmployeeFetcher {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
+        List<Employee> employeeList = session.createQuery("From Employee").getResultList();
+        employeeList.forEach(System.out::println);
+
+//        Employee emp = session.load(Employee.class, 1L);
+//        System.out.println("Load Metodu Bitti");
+//        session.delete(emp); // obje silindi.
+//
+
+
+
+
+
+        tx.commit();
+        session.close();
+        sf.close();
+
+
 
     }
 
