@@ -24,15 +24,7 @@ public class FetchDoctor {
         System.out.println("*".repeat(5) + " Session Kapandi " + "*".repeat(5));
 
 
-        Session session2 = sf.openSession();
-        Transaction tx2 = session2.beginTransaction();
 
-        Doctor doc1 = session2.get(Doctor.class, 1);
-        System.out.println(doc1);
-
-        tx2.commit();
-        session2.close();
-        sf.close();
     }
 }
 
