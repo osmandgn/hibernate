@@ -3,14 +3,19 @@ package s15EntityLifeCycle;
 /*
 Hinernate in Objeler ile nasıl çalıştığı ile ilgili ek bilgi :
 	Entity State :
-		*) Transient : Objenin newlenmiş hali, DB ile ilişkisi yok.
+		*) Transient : The lifecycle state of a newly instantiated entity object is called transient.
+		 The entity hasn’t been persisted yet, so it doesn’t represent any database record.
 
-		*) Persisted or Managed : DB de row a karşılık geldiği durum,
-								save(),get() vs. yapıldığı zamana denk geliyor.
+		*) Persisted or Managed : All entity objects attached to the current persistence context are in the lifecycle state managed.
+		That means that your persistence provider, e.g. Hibernate, will detect any changes on the objects and generate the required
+		SQL INSERT or UPDATE statements when it flushes the persistence context.
 
-		*) Detached : Session kapandıktan sonra elimizdeki objenin state durumu.
+		*) Detached : An entity that was previously managed but is no longer attached
+		to the current persistence context is in the lifecycle state detached.
 
-		*) Removed : obje remove yapıldığı zmanki durum.
+		*) Removed : When you call the remove method on your EntityManager,
+		the mapped database record doesn’t get removed immediately.
+		 The entity object only changes its lifecycle state to removed.
 */
 
 import javax.persistence.*;
