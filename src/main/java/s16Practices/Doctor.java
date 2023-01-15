@@ -12,12 +12,20 @@ public class Doctor {
     private String name;
     private String department;
 
-    public Doctor(int id, String name, String department) {
-        this.id = id;
+    public Doctor(String name, String department) {
         this.name = name;
         this.department = department;
     }
     public Doctor(){
 
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", department='" + department + '\'' +
+                '}';
     }
 }

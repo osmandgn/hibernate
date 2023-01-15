@@ -8,7 +8,9 @@ import s2Embeddable.Student;
 
 public class SaveDoctor {
     public static void main(String[] args) {
-        Doctor doctor = new Doctor(1, "Mustafa", "Bogaz");
+        Doctor doctor = new Doctor("Mustafa", "Bogaz");
+        Doctor doctor1 = new Doctor("Erhan", "Bogaz");
+        Doctor doctor2 = new Doctor("Harun", "Bogaz");
 
 //        Configuration con = new Configuration().configure().addAnnotatedClass(Doctor.class);
 //        SessionFactory sessionFactory = con.buildSessionFactory();
@@ -21,6 +23,8 @@ public class SaveDoctor {
         session.beginTransaction();
 
         session.save(doctor);
+        session.save(doctor1);
+        session.save(doctor2);
         session.getTransaction().commit();
 
         factory.close();
