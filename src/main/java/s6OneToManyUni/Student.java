@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "t_student")
+@Table(name = "t_denemestudent")
 public class Student {
 
     @Id
@@ -15,7 +15,7 @@ public class Student {
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "bookList_id")
+    @JoinColumn
     private List<Book> bookList = new ArrayList<>();
 
     public int getId() {

@@ -2,7 +2,7 @@ package s3OneToOneUni;
 
 import javax.persistence.*;
 
-@Table(name = "t_sdt")
+@Table(name = "t_sdtdeneme")
 @Entity
 public class Student {
 
@@ -15,7 +15,6 @@ public class Student {
     private String surname;
 
     @OneToOne()
-    @JoinColumn(name = "adress_id")
     private Address address;
 
 

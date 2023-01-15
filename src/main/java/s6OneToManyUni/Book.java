@@ -3,7 +3,7 @@ package s6OneToManyUni;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "books")
+@Table(name = "t_denemebook")
 public class Book {
 
     @Column(name = "book_id")

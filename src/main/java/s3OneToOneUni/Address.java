@@ -2,7 +2,7 @@ package s3OneToOneUni;
 
 import javax.persistence.*;
 
-@Table(name = "t_address")
+@Table(name = "t_addressdeneme")
 @Entity
 public class Address {
 
