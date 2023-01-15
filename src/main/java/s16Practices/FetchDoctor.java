@@ -12,12 +12,22 @@ public class FetchDoctor {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
-        List<Doctor> docList = session.createQuery("From Doctor", Doctor.class).getResultList();
-        docList.stream().forEach(System.out::println);
+        Doctor theDoctor = session.get(Doctor.class, 44);
+        theDoctor.setName("Hemsin");
 
 
         session.getTransaction().commit();
+
+
+        System.out.println("*****************************");
+
+        List<Doctor> docList = session.createQuery("From Doctor", Doctor.class).getResultList();
+        docList.stream().forEach(System.out::println);
+
+        session.close();
         sessionFactory.close();
+
+
 
 
 
